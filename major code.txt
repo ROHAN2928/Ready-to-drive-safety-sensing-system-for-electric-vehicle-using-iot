@@ -1,0 +1,852 @@
+\documentclass[10pt]{report}
+\usepackage{blindtext}
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{sectsty}
+\usepackage{float}
+\usepackage{array}
+\usepackage[backend=biber,bibencoding=latin1]{biblatex}
+\chapterfont{\centering}
+\usepackage{enumitem}
+\usepackage{enumerate}
+\usepackage{listings}
+\usepackage{color}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{afterpage}
+\usepackage{pdfpages}
+\usepackage{draftwatermark}
+
+\usepackage{ragged2e}
+\usepackage[headheight=0pt,headsep=0pt]{geometry}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\makeatletter
+\def\@makechapterhead#1{%
+%%%%\vspace*{50\p@}% %%% removed!
+{\parindent \z@ \centering\normalfont
+\ifnum \c@secnumdepth >\m@ne
+
+\huge\bfseries \@chapapp\space \thechapter
+\par\nobreak
+\vskip 20\p@
+\fi
+\interlinepenalty\@M
+\Huge \bfseries #1\par\nobreak
+\vskip 40\p@
+}}
+\def\@makeschapterhead#1{%
+%%%%%\vspace*{50\p@}% %%% removed!
+{\parindent \z@ \centering
+\normalfont
+\interlinepenalty\@M
+\Huge \bfseries #1\par\nobreak
+\vskip 40\p@
+}}
+\makeatother
+
+\lstset{ %
+language=Java, % the language of the code
+basicstyle=\footnotesize, % the size of the fonts that are used for the code
+numbers=left, % where to put the line-numbers
+numberstyle=\tiny\color{gray}, % the style that is used for the line-numbers
+stepnumber=1, % each line is numbered
+numbersep=5pt, % how far the line-numbers are from the code
+backgroundcolor=\color{white}, % choose the background color. You must add \usepackage{color}
+showspaces=false, % show spaces adding particular underscores
+showstringspaces=false, % underline spaces within strings
+showtabs=false, % show tabs within strings adding particular underscores
+frame=single, % adds a frame around the code
+rulecolor=\color{black}, % if not set, the frame-color may be changed on line-breaks within notblack
+text (e.g. commens (green here))
+tabsize=2, % sets default tabsize to 2 spaces
+captionpos=b, % sets the caption-position to bottom
+breaklines=true, % sets automatic line breaking
+breakatwhitespace=false, % sets if automatic breaks should only happen at whitespace
+title=\lstname, % show the filename of files included with \lstinputlisting;
+% also try caption instead of title
+keywordstyle=\color{blue}, % keyword style
+commentstyle=\color{dkgreen}, % comment style
+stringstyle=\color{mauve}, % string literal style
+escapeinside={\%*}{*)}, % if you want to add a comment within your code
+morekeywords={*,...} % if you want to add more keywords to the set}
+\geometry{a4paper,total={180mm,250mm},left=20mm,top=20mm, right=20mm}
+\thispagestyle{empty}
+\begin{document}
+
+\newpage
+
+\begin{center}
+\thispagestyle{empty}
+\LARGE{\textsc {\textbf{\textcolor{white}{READY TO DRIVE A SAFETY SENSING SYSTEM FOR ELECTRIC VEHICLE USING IOT}}}}\\[0.2cm]
+\vspace{0.2cm}
+\Large{\textit{\textcolor{white}{\\Major project report submitted \\in partial fulfillment of the
+requirement
+for award of the degree of}}}\\[0.3cm]
+\Large{\textbf{\textcolor{white}{\\Bachelor of Technology\\in \\Computer Science \& Engineering}}}
+\vspace{0.5cm}
+\Large{\textbf{\textcolor{white}{\\By}}}\\[0.5cm]
+
+\begin{table}[h]
+\centering
+\Large{\textcolor{white}{
+\begin{tabular}{>{\bfseries}lc>{\bfseries}r}
+BALGAM NITHIN&(20UECS0114) & (17736)\\BUSA ROHAN RAJ & (20UECS0105)&(17727)\\POKURI ANIRUDH REDDY&(20UECS1073) & (21646)\\
+\end{tabular}}}
+\end{table}
+\vspace{0.5cm}
+\large{\textit{\textcolor{white}{Under the guidance of}}}\\
+\large{\textit{\textcolor{white}{J.SWAPNA,M.E,\\
+ASSISTANT PROFESSOR}
+}}\\
+\vspace{0.5cm}
+\includegraphics[scale=0.5]{Logo.png}\\
+\vspace{1cm}
+\large{\textbf{\textcolor{white}{DEPARTMENT OF COMPUTER SCIENCE \& ENGINEERING}}}\\
+
+\large{\textbf{\textcolor{white}{SCHOOL OF COMPUTING}}}\\
+\vspace{0.5cm}
+\Large{\textbf{\textcolor{white}{VEL TECH RANGARAJAN DR. SAGUNTHALA R\&D INSTITUTE OF
+SCIENCE \& TECHNOLOGY\\
+\vspace{0.2cm}
+(Deemed to be University Estd u/s 3 of UGC Act,
+1956)}}}\\\Large{\textbf{\textcolor{white}{Accredited by NAAC with A++ Grade}}}\\
+\large{\textbf{\textcolor{white}{CHENNAI 600 062, TAMILNADU, INDIA}}}
+\vspace{0.4cm}
+\large{\textbf{\textcolor{white}{\\May, 2024}}}\\
+\pagecolor{gray}\afterpage{\nopagecolor}
+\end{center}
+\newpage
+
+\begin{center}
+\thispagestyle{empty}
+\LARGE{\textsc {\textbf{\textcolor{blue}{READY TO DRIVE A SAFETY SENSING SYSTEM FOR ELECTRIC VEHICLE USING IOT}}}}\\[0.2cm]
+\vspace{0.2cm}
+\Large{\textit{\textcolor{blue}{\\Major project report submitted \\in partial fulfillment of the
+requirement
+for award of the degree of}}}\\[0.3cm]
+\Large{\textbf{\textcolor{blue}{\\Bachelor of Technology\\in \\Computer Science \& Engineering}}}
+\vspace{0.5cm}
+\Large{\textbf{\textcolor{blue}{\\By}}}\\[0.5cm]
+\begin{table}[h]
+\centering
+\Large{\textcolor{blue}{
+\begin{tabular}{>{\bfseries}lc>{\bfseries}r}
+BALGAM NITHIN&(20UECS0114) & (17736)\\BUSA ROHAN RAJ & (20UECS0105)&(17727)\\POKURI ANIRUDH REDDY&(20UECS1073) & (21646)\\
+\end{tabular}}}
+\end{table}
+\vspace{0.5cm}
+\large{\textit{\textcolor{blue}{Under the guidance of}}}\\
+\large{\textit{\textcolor{blue}{J.SWAPNA,M.E,\\
+ASSISTANT PROFESSOR}
+}}\\
+\vspace{0.5cm}
+\includegraphics[scale=0.5]{Logo.png}\\
+\vspace{1cm}
+\large{\textbf{\textcolor{blue}{DEPARTMENT OF COMPUTER SCIENCE \& ENGINEERING}}}\\
+
+\large{\textbf{\textcolor{blue}{SCHOOL OF COMPUTING}}}\\
+\vspace{0.5cm}
+\Large{\textbf{\textcolor{blue}{VEL TECH RANGARAJAN DR. SAGUNTHALA R\&D INSTITUTE OF
+
+SCIENCE \& TECHNOLOGY\\
+\vspace{0.2cm}
+(Deemed to be University Estd u/s 3 of UGC Act,
+1956)}}}\\\Large{\textbf{\textcolor{blue}{Accredited by NAAC with A++ Grade}}}\\
+\large{\textbf{\textcolor{blue}{CHENNAI 600 062, TAMILNADU, INDIA}}}
+\vspace{0.4cm}
+\large{\textbf{\textcolor{blue}{\\May, 2024}}}\\
+\end{center}
+
+%CERTIFICATE
+\newpage
+\pagenumbering{roman}
+\begin{center}
+{\Huge \textbf{CERTIFICATE}}\\[1cm]
+\end{center}
+\linespread{1.5}
+\large{It is certified that the work contained in the project report titled "READY TO DRIVE A SAFETY SENSING SYSTEM FOR ELECTRIC VEHICLE USING IOT" by "BALGAM NITHIN& (20UECS0114), BUSA ROHAN RAJ  & (20UECS0105), POKURI ANIRUDH REDDY & (20UECS1073)" has been carried out under my supervision and that this work has not
+been submitted elsewhere for a degree.}
+\vspace{12.5cm}
+\begin{flushleft}
+
+\textbf{Signature of Supervisor\hfill\textbf{Signature of Professor In-charge}\\\\Computer
+Science \& Engineering\hfill\textbf{Computer
+Science \& Engineering}\\School of Computing\hfill\textbf{School of Computing}\\Vel Tech
+Rangarajan Dr. Sagunthala R\&D\hfill\textbf{Vel Tech Rangarajan Dr. Sagunthala R\&D}\\Institute of
+Science \& Technology\hfill\textbf{Institute of
+Science \& Technology}\\May, 2024\hfill\textbf{May, 2024}\\\hfill\textbf{}\\}\hfill\textbf{}\\\
+\end{flushleft}
+%declaration
+
+\newpage
+\begin{center}
+\Huge \textbf{DECLARATION}
+\end{center}
+\vspace{1.0cm}
+\linespread{1.5}
+\large{
+We declare that this written submission represents my ideas in our own words and where others'
+ideas
+or words have been included, we have adequately cited and referenced the original sources. We also
+declare that we have adhered to all principles of academic honesty and integrity and have not
+misrepresented or fabricated or falsified any idea/data/fact/source in our submission. We
+understand
+that any violation of the above will be cause for disciplinary action by the Institute and can also
+evoke
+penal action from the sources which have thus not been properly cited or from whom proper
+permission
+has not been taken when needed.}
+\vspace{2.0cm}
+\begin{flushright}
+(Signature)\\
+\large{(BALGAM NITHIN)}\\
+\large{Date:\hspace*{1.0cm}/\hspace*{1.0cm}/}\\[2.0cm]
+(Signature)\\
+\large{(BUSA ROHAN RAJ)}\\
+\large{Date:\hspace*{1.0cm}/\hspace*{1.0cm}/}\\[2.0cm]
+(Signature)\\
+\large{(POKURI ANIRUDH REDDY)}\\
+\large{Date:\hspace*{1.0cm}/\hspace*{1.0cm}/}\\[2.0cm]
+\end{flushright}
+\newpage
+%approval sheet
+
+\newpage
+\begin{center}
+\Huge\textbf{APPROVAL SHEET}\\
+\vspace{1.0cm}
+\end{center}
+\linespread{1.5}
+\justifying{
+\large{This project report entitled (READY TO DRIVE A SAFETY SENSING SYSTEM FOR ELECTRIC VEHICLE USING IOT) by (BALGAM NITHIN
+(20UECS0114), (BUSA ROHAN RAJ (20UECS0105), (POKURI ANIRUDH REDDY(20UECS1073) is approved for
+the
+degree of B.Tech in Computer Science \& Engineering.}\\}
+\vspace{4.0cm}
+\begin{flushleft}
+\Large \textbf{Examiners} \hfill \Large \textbf{Supervisor}\\
+\end{flushleft}
+\begin{flushright}
+J.SWAPNA,M.E,ASSISTANT PROFESSOR,.
+\end{flushright}
+\vspace{1.0cm}
+\begin{flushleft}
+\large{\textbf{Date:\hspace*{1.0cm}/\hspace*{2.0cm}/}}\\
+\large{\textbf{Place:}}
+\end{flushleft}
+%acknowledgment
+\newpage
+\begin{center}
+\LARGE{\textbf{ACKNOWLEDGEMENT}}\\[1cm]
+\end{center}
+\linespread{1.13}
+\large{\paragraph{}We express our deepest gratitude to our respected \textbf{Founder Chancellor
+and
+
+President Col. Prof. Dr. R. RANGARAJAN B.E. (EEE), B.E. (MECH), M.S (AUTO),D.Sc., Foundress
+President
+Dr. R. SAGUNTHALA RANGARAJAN M.B.B.S.} Chairperson Managing Trustee and Vice President.}
+\large{\paragraph{}We are very much grateful to our beloved \textbf{Vice Chancellor Prof. S.
+SALIVAHANAN,} for providing us with an environment to complete our project successfully.}
+\large{\paragraph{}We record indebtedness to our \textbf{Professor \& Dean, Department of
+Computer
+Science \& Engineering, School of Computing, Dr. V. SRINIVASA RAO, M.Tech., Ph.D.,} for immense
+care and encouragement
+towards us throughout the course of this project.}
+
+\large{\paragraph{}We are thankful to our \textbf{Head, Department of Computer
+Science \& Engineering,Dr.M.S. MURALI DHAR, M.E., Ph.D.,} for providing immense support in all our
+endeavors.}
+\large{\paragraph{}We also take this opportunity to express a deep sense of gratitude to our Internal
+Supervisor \textbf{Supervisor name,degree.,(in capital letters)} for his/her cordial support, valuable
+information and guidance, he/she helped us in completing this project through various stages. }
+\large{\paragraph{}A special thanks to our \textbf{Project Coordinators Mr. V. ASHOK KUMAR,
+M.Tech., Ms. C. SHYAMALA KUMARI, M.E.,} for their valuable guidance and support throughout the
+course of the project.}
+
+\large{\paragraph{}We thank our department faculty, supporting staff and friends for their help and
+guidance to complete this project.}
+\vspace{2.0cm}
+\begin{flushright}
+\begin{tabular}{>{\bfseries}lc>{\bfseries}r}
+BALGAM NITHIN & & (20UECS0114)\\BUSA ROHAN RAJ & & (20UECS0105)\\POKURI ANIRUDH REDDY & &
+(20UECS1073)\\
+\end{tabular}
+\end{flushright}
+%ABSTRACT
+\newpage
+\begin{center}
+
+\vspace{2cm}
+\Large{\textbf{ABSTRACT}}\\[0.5cm]
+\end{center}
+\begin{center}
+\addtocontents{toc}{~\hfill\textbf{Page.No}\par}
+\addcontentsline{toc}{chapter}{ABSTRACT}
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+\end{center}
+\vspace{-5em}
+\Large{\paragraph\\
+The integration of Internet of Things (IoT) technology in electric vehicles (EVs) has paved the way for enhanced safety features and driving experience. This project focuses on the development of a ready-to-drive safety sensing electric vehicle utilizing IoT advancements. The core objective is to design a comprehensive system that integrates various IoT sensors and devices to monitor and improve the safety aspects of EVs.
+Key components of the system include sensors for monitoring environmental conditions, such as temperature, humidity, and air quality, to ensure optimal driving conditions for passengers and the vehicle itself. Furthermore, the integration of IoT technology enables remote monitoring and control of the EV's vital parameters, including battery status, charging levels, and overall performance. This not only enhances the convenience for users but also contributes to the longevity and efficiency of the vehicle
+
+
+}\\
+\vspace{0.5cm}
+\noindent \textbf{Keywords:}
+\textbf{}
+%list of figure
+\newpage
+\renewcommand*\listfigurename{LIST OF FIGURES}
+\addcontentsline{toc}{chapter}{LIST OF FIGURES}
+\listoffigures
+7\newpage
+\renewcommand{\listtablename}{LIST OF TABLES}
+
+\addcontentsline{toc}{chapter}{LIST OF TABLES}
+\listoftables
+%list of abbreviation
+\newpage
+\newlist{abbrv}{itemize}{1}
+\setlist[abbrv,1]{label=,labelwidth=1in,align=parleft,itemsep=0.1\baselineskip,leftmargin=!}
+\chapter*{LIST OF ACRONYMS AND ABBREVIATIONS}
+\chaptermark{LIST OF ACRONYMS AND ABBREVIATIONS}
+\addcontentsline{toc}{chapter}{LIST OF ACRONYMS AND ABBREVIATIONS}
+\begin{abbrv}
+\item[abbr] Abbreviation
+\end{abbrv}
+\newpage
+\renewcommand*\contentsname{TABLE OF CONTENTS}
+%\addtocontents{toc}{\textbf{CONTENT} \hfill \textbf{PAGE NO.}}
+\tableofcontents
+\addtocontents{toc}{\protect\pagestyle{empty}}
+\thispagestyle{empty}
+%introduction
+\chapter{INTRODUCTION}
+\pagenumbering{arabic}
+\section{Introduction}
+\textbf{In response to this imperative, the project "Ready-to-Safety Sensing System for Electric Vehicle using IoT" aims to leverage the power of Internet of Things (IoT) technology to enhance the safety features and driving experience of electric vehicles. With the proliferation of IoT-enabled devices and sensors, there exists a unique opportunity to create a comprehensive safety sensing system that monitors and responds to potential hazards in real-time.
+The primary objective of this project is to develop a sophisticated safety sensing system that integrates seamlessly with electric vehicles, providing drivers with enhanced situational awareness and proactive assistance in navigating challenging road conditions. By leveraging IoT sensors deployed both within and around the vehicle, the system will continuously monitor environmental factors such as temperature, humidity, air quality, and road conditions, as well as detect potential obstacles, pedestrians, and other vehicles.
+}
+\newpage
+
+\linespread{1.5}
+\section{Aim of the project}
+\hspace{0.5cm}The aim of the project "Ready-to-Drive Safety Sensing System for Electric Vehicle using IoT" is to develop a comprehensive and integrated system that leverages IoT (Internet of Things) technology to enhance the safety aspects of electric vehicles (EVs) and provide a seamless driving experience. The primary objectives of the project include:
+Real-time Monitoring: Implementing IoT sensors and devices to continuously monitor various parameters both inside and outside the electric vehicle, such as temperature, humidity, air quality, road conditions, and vehicle performance metrics
+Remote Monitoring and Control: Enabling remote monitoring and control of the electric vehicle's vital parameters, such as battery status, charging levels, and vehicle diagnostics, through IoT connectivity. This feature enhances convenience for the user and facilitates proactive maintenance and troubleshooting
+
+\newpage
+\section{Project Domain}
+
+*Internet of Things (IoT): The core concept revolves around connecting devices (such as batteries) to the internet to gather data remotely.
+
+Embedded Systems: ESP8266 is a microcontroller with built-in Wi-Fi capability, so understanding embedded systems is essential for programming and interfacing with it.
+
+*Wireless Communication: Understanding wireless communication protocols such as Wi-Fi, MQTT, or HTTP is crucial for transmitting data from the ESP8266 to the cloud or a local server.
+
+*Battery Technology: A basic understanding of battery chemistry, charging, and discharging characteristics is necessary to interpret data accurately and ensure the longevity of the batteries being monitored.
+
+*Data Analytics and Visualization: Processing the data collected from the batteries and presenting it in a meaningful way requires skills in data analytics and visualization.
+
+*Cloud Computing: If you're planning to store data in the cloud, knowledge of cloud platforms like AWS, Azure, or Google Cloud Platform may be necessary.
+
+*Power Management: Efficient power management is critical, especially for battery-operated devices like those in IoT systems. This involves understanding low-power modes, sleep cycles, and power consumption optimization techniques.
+
+*Security: Ensuring the security of the data being transmitted and stored is essential in any IoT system. This involves implementing encryption, access control, and secure communication protocols.
+
+\newpage
+\section{Scope of the Project}
+IoT Sensor Integration: Selection and integration of appropriate IoT sensors to monitor environmental conditions both inside and outside the vehicle, including temperature, humidity, air quality, and road conditions .
+Connectivity and Data Management: Implementation of IoT connectivity solutions to facilitate real-time data transmission between sensors, onboard systems, and external servers or cloud platforms. Development of data management systems to collect, store, and process sensor data efficiently, ensuring timely and accurate insights for safety monitoring and control.
+Remote Monitoring and Control: Implementation of remote monitoring and control capabilities for monitoring vital parameters of the EV, including battery status, charging levels, and vehicle performance .Development of user interfaces or mobile applications to enable users to remotely access and control various aspects of the vehicle, enhancing convenience and efficiency.
+
+
+%literature review
+\chapter{LITERATURE REVIEW}
+  [1]ESP8266 Microcontroller and IoT Integration:
+
+Literature often covers the technical specifications and capabilities of the ESP8266 microcontroller, including its Wi-Fi connectivity features and programming methodologies.
+Various studies explore how the ESP8266 can be integrated into IoT systems for data acquisition, processing, and transmission.
+            
+[2]Battery Monitoring Techniques:
+
+Researchers may discuss different methods for monitoring battery parameters such as voltage, current, temperature, and state of charge (SoC).
+Review papers might compare different sensor technologies and their effectiveness in battery monitoring applications.
+Studies might explore the challenges associated with accurately measuring battery parameters in real-time, especially in remote or harsh environments.
+[3]Wireless Communication Protocols:
+
+Literature reviews might compare and contrast different wireless communication protocols (e.g., MQTT, HTTP, CoAP) for transmitting battery data from ESP8266-based devices to cloud servers or local gateways.
+Researchers might discuss the trade-offs between data transmission speed, energy efficiency, and reliability in the context of battery monitoring systems.
+
+[4]Cloud-Based Data Storage and Analytics:
+
+Many studies focus on how battery data collected from ESP8266 devices can be stored, processed, and analyzed in cloud-based platforms (e.g., AWS IoT, Azure IoT, Google Cloud Platform).
+Literature might explore different data analytics techniques, including predictive maintenance algorithms, anomaly detection methods, and trend analysis approaches for battery health assessment.
+
+[5]Power Optimization Strategies:
+
+Researchers often investigate techniques for optimizing power consumption in ESP8266-based battery monitoring systems to prolong battery life and minimize energy usage.
+Literature might discuss strategies such as sleep modes, duty cycling, and dynamic voltage scaling to achieve efficient power management..
+
+\linespread{1.5}
+%PROJECT DESCRIPTION
+\chapter{PROJECT DESCRIPTION}
+\linespread{1.5}
+\section{Existing System}
+The existing IoT-based battery monitoring systems typically consist of hardware components like battery sensors, microcontrollers (such as Arduino or Raspberry Pi), communication modules (like Wi-Fi, Bluetooth, or GSM), and software components such as data processing algorithms and user interfaces. These systems are designed to remotely monitor parameters like battery voltage, temperature, and current, providing real-time data to users or central monitoring stations. They often include features like predictive maintenance alerts, historical data analysis, and customizable notifications for battery health and performance management.
+
+\section{Proposed System}
+An IoT-based battery monitoring system typically involves sensors placed on batteries to collect data on various parameters like voltage, temperature, and current. This data is then transmitted wirelessly to a central server or cloud platform for analysis and storage. Users can access this data through a web or mobile application to monitor battery health, receive alerts for maintenance or replacement, and optimize battery usage. The system may also include predictive analytics to anticipate battery failures or degradation, allowing for proactive maintenance. Overall, it offers real-time insights and remote monitoring capabilities for efficient battery management.
+
+\newpage
+\section{Feasibility Study}
+Market feasibility: This examines the demand for such a system in the market and whether potential users would be willing to adopt it. Market research is conducted to understand the needs of target customers, identify competitors, and assess potential revenue streams. Factors such as industry trends, regulatory requirements, and potential partnerships also play a role in determining market feasibility.
+Market feasibility: This examines the demand for such a system in the market and whether potential users would be willing to adopt it. Market research is conducted to understand the needs of target customers, identify competitors, and assess potential revenue streams. Factors such as industry trends, regulatory requirements, and potential partnerships also play a role in determining market feasibility.
+
+
+
+
+
+
+\subsection{Economic Feasibility}
+Financial feasibility: This involves estimating the costs associated with developing and implementing the project compared to the potential benefits and returns. It includes an analysis of initial investment requirements, ongoing operational costs, potential revenue generation, and return on investment (ROI). Financial projections and risk assessments are used to determine whether the project is financially viable.
+
+
+\subsection{Technical Feasibility}
+Technical feasibility: This assesses whether the technology required for the project is available, feasible, and scalable. It involves evaluating the compatibility of various IoT sensors, communication protocols, and cloud platforms for data storage and analysis. Additionally, considerations regarding power consumption, sensor accuracy, and data transmission reliability are important.
+
+
+\subsection{Social Feasibility}
+Legal and regulatory feasibility: This examines the legal and regulatory requirements that may impact the development and deployment of the project. It involves identifying relevant regulations related to data privacy, security, and compliance, as well as any intellectual property considerations. Legal and regulatory compliance are essential for ensuring the project's success and avoiding potential liabilities.
+By conducting a comprehensive feasibility study covering these aspects, stakeholders can make informed decisions about whether to proceed with the IoT-based battery monitoring system project and how to mitigate potential risks and challenges.
+
+\section{System Specification}
+*Sensor Integration: Incorporate sensors for monitoring key parameters such as voltage, current, temperature, and state of charge (SoC) of the batteries.
+*Wireless Connectivity: Utilize wireless communication protocols such as Wi-Fi, Bluetooth, or LoRaWAN for transmitting data from the sensors to the central server or cloud platform.
+*Cloud Platform: Implement a cloud-based platform for data storage, processing, and analysis. Ensure scalability, reliability, and security of the cloud infrastructure.
+*User Interface: Develop a user-friendly web or mobile application for accessing battery data, viewing real-time metrics, and receiving alerts and notifications.
+*Data Analytics: Incorporate data analytics capabilities for trend analysis, predictive maintenance, and optimization of battery performance and lifespan.
+Alerts and Notifications: Set up automated alerts and notifications to notify users of critical battery conditions, such as low voltage, high temperature, or impending failure.
+*Remote Monitoring: Enable remote monitoring and control of batteries, allowing users to access data and perform maintenance tasks from anywhere with an internet connection.
+
+\subsection{Hardware Specification}
+Battery Sensors: Include sensors capable of measuring key parameters such as voltage, current, temperature, and state of charge (SoC) of the batteries. These sensors can be based on technologies like voltage dividers, current sensors, thermistors, and coulomb counters.
+Microcontroller Unit (MCU): Use a microcontroller unit (MCU) to interface with the battery sensors, process data, and manage communication with the IoT gateway or network. Popular choices include Arduino, Raspberry Pi, ESP32, or specialized IoT development boards.
+Wireless Communication Module: Integrate a wireless communication module to enable data transmission from the MCU to the central server or cloud platform. Common options include Wi-Fi, Bluetooth, Zigbee, LoRa, or cellular (e.g., 4G LTE, NB-IoT).
+Power Supply: Provide a stable power supply to the hardware components, which may include batteries, solar panels, or AC/DC adapters. Ensure power efficiency and reliability to support continuous operation in various environments.
+\subsection{Software Specification}
+Should be listed as bullet points by mentioning with recent specs
+
+\subsection{Standards and Policies}
+
+\textbf{Data security and privacy policies}\\
+Implement encryption protocols for data transmission and storage to comply with industry standards such as AES (Advanced Encryption Standard).
+Adhere to data privacy regulations like GDPR (General Data Protection Regulation) or CCPA (California Consumer Privacy Act) to protect user information.\\
+
+\textbf{Device communication protocols}\\
+Follow established IoT communication protocols like MQTT (Message Queuing Telemetry Transport) or CoAP (Constrained Application Protocol) to ensure interoperability and efficient data transmission between devices and the central monitoring system.\\
+\textbf{Battery safety standards}
+Adhere to battery safety standards such as IEC 62133 for lithium-ion batteries or relevant standards for other battery chemistries to ensure safe handling and operation.
+Electromagnetic Compatibility (EMC):
+Ensure compliance with EMC standards like CISPR 32 or FCC Part 15 to mitigate electromagnetic interference issues that may affect the operation of the IoT device
+\textbf{Compilances with Industry Standards}
+Ensure compliance with relevant industry standards and certifications such as ISO 27001 for information security management or ISO 13485 for medical device quality management (if applicable).
+\textbf{Documentation and Reporting Requrinments}
+Maintain thorough documentation of design specifications, test results, compliance certificates, and incident reports to demonstrate regulatory compliance and facilitate audits.
+
+
+\chapter{METHODOLOGY}
+\linespread{1.5}\
+\section{General Architecture}
+\begin{figure}
+    \centering
+    \includegraphics{}
+    \caption{\textbf{Architecture Diagram}}
+    \label{fig:enter-label}
+\end{figure}[H]
+
+Figure 4.1 is a diagram of a system, in which the principal parts or functions are
+represented by blocks connected by lines that show the relationships of the blocks.
+The block diagram is typically used for a higher level, less detailed description aimed
+more at understanding the overall concepts and less at understanding the details of
+implementation.
+
+\section{Design Phase }
+\subsection{Data Flow Diagram}
+\begin{figure}[H]
+\centering
+\includegraphics[height= 10cm, width=15cm]{Data.png}
+\caption{\textbf{Data Flow Diagram}}
+\end{figure}
+
+The DFD is also called as bubble chart.As shown in the Figure 4.2 It is a
+simple graphical formalism that can be used to represent a system in terms of input
+data to the system, various processing carried out on this data, and the output data is
+generated by this system. The data flow diagram (DFD) is one of the most important
+modeling tools. It is used to model the system components. These components are
+the system process, the data used by the process, an external entity that interacts with
+the system and the information flows in the system. DFD shows how the information
+moves through the system and how it is modified by a series of transformations. It
+is a graphical technique that depicts information flow and the transformations that
+are applied as data moves from input to output.DFD is also known as bubble chart.
+A DFD may be used to represent a system at any level of abstraction. DFD may
+be partitioned into levels that represent increasing information flow and functional
+details.
+
+\subsection{Use Case Diagram}
+\begin{figure}[H]
+\centering
+\includegraphics[height= 10cm, width=12cm]{usecase.png}
+\caption{\textbf{Use Case Diagram}}
+
+\end{figure}
+Description
+Figure 4.3 is a use case diagram in the Unified Modeling Language (UML) is
+a type of behavioral diagram defined by and created from a Use-case analysis. Its
+purpose is to present a graphical overview of the functionality provided by a sys tem in terms of actors, their goals (represented as use cases), and any dependencies
+between those use cases. The main purpose of a use case diagram is to show what
+system functions are performed for which actor. Roles of the actors in the system
+can be depicted.
+\subsection{Class Diagram}
+\begin{figure}[H]
+\centering
+\includegraphics[height= 10cm, width=12cm]{class.png}
+\caption{\textbf{Class Diagram}}
+\end{figure}
+Description
+n software engineering, a class diagram in the Unified Modeling Language
+(UML) is a type of static structure diagram that describes the structure of a system
+by showing the system’s classes, their attributes, operations (or methods), and the
+relationships among the classes. It explains which class contains information.Class
+diagrams are the blueprints of your system or subsystem. You can use class diagrams
+to model the objects that make up the system, to display the relationships between
+the objects, and to describe what those objects do and the services that they provide.
+Class diagrams are useful in many stages of system design as shown in the figure
+4.4.
+
+\subsection{Sequence Diagram}
+\begin{figure}[H]
+\centering
+\includegraphics[height= 12cm, width=12cm]{seque.png}
+\caption{\textbf{Sequence Diagram}}
+\end{figure}
+Description
+Figure 4.5 Represent the objects participating the interaction horizontally and
+time vertically. A Use Case is a kind of behavioral classifier that represents a dec laration of an offered behavior. Each use case specifies some behavior, possibly
+including variants that the subject can perform in collaboration with one or more
+actors. Use cases define the offered behavior of the subject without reference to its
+internal structure. These behaviors, involving interactions between the actor and the
+subject, may result in changes to the state of the subject and communications with
+its environment. A use case can include possible variations of its basic behavior,
+including exceptional behavior and error handling.
+\subsection{Collaboration Diagram}
+\begin{figure}[H]
+\centering
+\includegraphics[height= 12cm, width=12cm]{coll.png}
+\caption{\textbf{Collaboration Diagram}}
+\end{figure}
+Description
+Figure 4.6 resembles a flowchart that portrays the roles, functionality and be havior of individual objects as well as the overall operation of the system in real time.
+Objects are shown as rectangles with naming labels inside. These labels are preceded
+by colons and may be underlined. The relationships between the objects are shown
+as lines connecting the rectangles. The messages between objects are shown arrows
+connecting the relevant rectangles along with labels that define the message sequencing
+
+\subsection{Activity Diagram}
+\begin{figure}[H]
+\centering
+\includegraphics[height= 12cm, width=12cm]{images/Untitled Diagram (9).jpg}
+\caption{\textbf{Activity Diagram}}
+\end{figure}
+\section{Algorithm \& Pseudo Code}
+
+\subsection{Algorithm}
+\subsection{Pseudo Code}
+
+%Description of Sequence Diagram
+\newpage
+\section{Module Description}
+\subsection{SYSTEM ARCHITECTURE}
+\textbf{System Architecture:}
+Design the overall architecture of the system including hardware components (ESP8266, sensors, battery interface), software components (firmware, backend server, database), and communication protocols (Wi-Fi, MQTT, HTTP)
+
+\textbf{*Requirnments  Analysis:}
+Understand the requirements of the battery monitoring system such as the types of batteries to monitor, communication protocols, data visualization, etc.
+
+
+
+
+\subsection{HARDWARE SELECTION}
+\textbf{Hardware selection and Integration:}
+Choose suitable sensors for measuring battery parameters like voltage, current, temperature, etc. Integrate these sensors with ESP8266 and Arduino IoT board.
+
+\textbf{*Firmware Development:}
+Develop firmware for ESP8266 and Arduino IoT to read data from sensors, process it, and send it to the backend server using Wi-Fi or other communication protocols.
+\subsection{BACKEND DEVELOPNMENT}
+\textbf{Backend Developnment:}
+Set up a backend server to receive data from the IoT devices, store it in a database, and provide APIs for accessing the data. You can use platforms like AWS IoT, Google Cloud IoT, or self-hosted solutions like MQTT broker and database server.
+
+\textbf{*Data Visualization:}
+Create a user interface for visualizing battery parameters such as voltage, current, temperature, and state of charge. This can be a web dashboard, mobile app, or desktop application
+
+\newpage
+\section{Steps to execute/run/implement the project}
+\subsection{Step1}
+Describe steps with title and mention steps in bullet points
+
+\subsection{Step2}
+Describe steps with title and mention steps in bullet points
+
+\subsection{Step3}
+Describe steps with title and mention steps in bullet points
+
+\chapter{IMPLEMENTATION AND TESTING}
+\linespread{1.5}
+\section{Input and Output}
+\subsection{Input Design}
+
+\subsection{Output Design}
+\newpage
+\section{Testing}
+\section{Types of Testing}
+\subsection{Unit testing}
+\subsubsection{}
+Identify Units to Test: Break down your code into smaller units or components that can be tested independently. For example, you might have units for sensor reading, data processing, communication with the cloud, UI components, etc.
+
+*Write Test Cases: Develop test cases for each unit to verify its functionality. Test cases should cover both normal and edge cases to ensure robustness. For the battery monitoring system, you might have test cases to simulate different battery levels, network connectivity scenarios, error handling, etc.
+
+*Setup Testing Environment: Set up a testing environment where you can run your unit tests. This might involve creating mock objects or simulators for hardware components such as sensors or the ESP8266.
+
+*Select a Testing Framework: Choose a testing framework suitable for your platform. For ESP8266 code, you might use the Arduino Unit Testing framework or another testing library compatible with the Arduino IDE. For Android, you can use JUnit for unit testing Java code and Espresso for UI testing.
+
+
+\begin{lstlisting}
+\end{lstlisting}
+\subsubsection{}
+\subsection{Integration testing}
+\subsubsection{}
+*Identify Integration Points: Determine the points in your system where different components interact with each other. In your case, this might include communication between the ESP8266 device and the Android IoT cloud, as well as interactions between the Android app and the cloud.
+
+*Define Test Scenarios: Develop test scenarios that cover various aspects of the system's interaction. This could include scenarios such as:
+*Sending battery data from ESP8266 to the IoT cloud.
+*Retrieving battery status from the cloud to the Android app.
+*Handling communication errors or timeouts gracefully.
+*Testing different network conditions (e.g., Wi-Fi connectivity issues).
+*Prepare Test Environment: Set up a test environment that closely resembles the actual deployment environment of your system. This may involve configuring virtual devices or using hardware simulators to mimic the behavior of the ESP8266 device and the IoT cloud.
+
+Write Test Cases: Create test cases to verify the behavior of the system under different integration scenario
+
+\begin{lstlisting}
+\end{lstlisting}
+\subsubsection{}
+\newpage
+\subsection{System testing}
+\subsubsection{]
+Understand Requirements: Review the requirements documentation to understand the expected functionality of the battery monitoring system. This includes features such as real-time battery status monitoring, alerts for low battery levels, historical data logging, etc.
+
+Define Test Cases: Based on the requirements, create functional test cases that cover different aspects of the system's functionality. Each test case should have a clear objective, inputs, expected outputs, and any preconditions or dependencies.
+
+Setup Test Environment: Set up a test environment that closely resembles the production environment where the system will be deployed. This may involve configuring virtual devices, emulators, or actual hardware components such as ESP8266 devices and an Android device.
+
+\begin{lstlisting}
+\end{lstlisting}
+\subsubsection{Test Result}
+\newpage
+\subsection{Test Result}
+\begin{figure}[H]
+\centering
+\includegraphics[height= 18cm, width=17cm]{images/s4.png}
+\caption{\textbf{Test Image}}
+\end{figure}
+\chapter{RESULTS AND DISCUSSIONS}
+\linespread{1.5}
+\section{Efficiency of the Proposed System}
+{Sample attached}\\
+{ SHOULD BE MINIMUM TWO PARAGRAPHS -WITH MINIMUM 150 WORDS}
+
+The proposed system is based on the Random forest Algorithm that creates many
+decision trees. Accuracy of proposed system is done by using random forest gives
+the ouput approximately 76 to 78 percent. Random forest implements many decision
+trees and also gives the most accurate output when compared to the decision tree.
+Random Forest algorithm is used in the two phases. Firstly, the RF algorithm extracts
+subsamples from the original samples by using the bootstrap resampling method and
+creates the decision trees for each testing sample and then the algorithm classifies
+the decision trees and implements a vote with the help of the largest vote of the
+classification as a final result of the classification. The random Forest algorithm
+always includes some of the steps as follows:
+Selecting the training dataset:Using the bootstrap random sampling method we
+can derive the K training sets from the original dataset properties using the size of
+all training set the same as that of original training dataset.
+Building the random forest algorithm: Creating a classification regression tree
+each of the bootstrap training set will generate the K decision trees to form a random
+forest model, uses the trees that are not pruned. Looking at the growth of the tree,
+31
+this approach is not chosen the best feature as the internal nodes for the branches
+but rather the branching process is a random selection of all the trees gives the best
+features.
+\newpage
+
+\section{Comparison of Existing and Proposed System}
+{Sample attached}\\
+
+\textbf{Existing system:(Decision tree)}\\ In the Existing system, we implemented a decision tree
+algorithm that predicts whether to grant the loan or not. When using a
+decision tree model, it gives the training dataset the accuracy keeps improving with
+splits. We can easily overfit the dataset and doesn’t know when it crossed the line
+unless we are using the cross validation. The advantages of the decision tree are
+model is very easy to interpret we can know that the variables and the value of the
+
+variable is used to split the data. But the accuracy of decision tree in existing system
+gives less accurate output that is less when compared to proposed system.\\
+\textbf{Proposed system:(Random forest algorithm)}\\ Random forest algorithm generates more
+trees when compared to the decision tree and other algorithms. We can
+specify the number of trees we want in the forest and also we also can specify maximum of features
+to be used in the each of the tree. But, we cannot control the
+randomness of the forest in which the feature is a part of the algorithm. Accuracy
+keeps increasing as we increase the number of trees but it becomes static at one
+certain point. Unlike the decision tree it won’t create more biased and decreases
+variance. Proposed system is implemented using the Random forest algorithm so
+that the accuracy is more when compared to the existing system.
+
+\newpage
+\section{Sample Code}
+\begin{lstlisting}
+write your code here
+main code
+\end{lstlisting}
+\subsubsection{Output}
+\begin{figure}[H]
+\centering
+\includegraphics[height= 15cm, width=17cm]{output1.png}
+\caption{\textbf{Output 1}}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[height= 18cm, width=17cm]{output2.png}
+\caption{\textbf{Output 2}}
+\end{figure}
+\chapter{CONCLUSION AND FUTURE ENHANCEMENTS}
+\linespread{1.5}
+\section{Conclusion}
+
+Advanced BMS can significantly improve the performance of EVs. Adaptive mathematical models are an efficient tool for improving and refining BMS. The State- of-Charge determination algorithms, developed with the help of adaptive battery models, are highly precise and represent a good basis for practical implementation. BMS is a critical component of electric vehicles.
+That promotes guarantee safe, efficient and reliable battery operation. The combination of advanced charging algorithms and adaptive S BMS improves the battery functioning thus improving the characteristics of EV
+
+\newpage
+\section{Future Enhancements}
+SHOULD BE MINIMUM TWO PARAGRAPHS -WITH MINIMUM 150 WORDS
+\chapter{INDUSTRY DETAILS }
+\section{Industry Name: VOLT ME MOTORS PVT.LMT}
+\subsection{Duration of Internship (JAN 8 - MAY 9)}
+\subsection{Duration of internship: 5 months}
+\subsection{Industry Address: 4th floor, 7-13, Sri lakshmi nilayam, near midland bakery madinaguda, miyapur, hyderabad - 500050 }
+
+\newpage
+\section{Internship offer letter}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[height= 6cm, width=7cm]{nithin.png}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[height= 6cm, width=7cm]{anirudh.png}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[height= 6cm, width=7cm]{rohAN.png}
+\caption{\textbf{Poster}}
+\end{figure}
+\newpage
+
+\section{Internship Completion certificate}
+
+\chapter{PLAGIARISM REPORT}
+ATTACH ONLY SUMMARY PAGE OF PLAGIARISM REPORT
+
+\chapter{SOURCE CODE \& POSTER PRESENTATION}
+\section{Source Code}
+fhshsfhfjh
+
+\newpage
+\section{Poster Presentation}
+\begin{figure}[H]
+\centering
+\includegraphics[height= 18cm, width=17cm]{post.png}
+\caption{\textbf{Poster}}
+\end{figure}
+
+\addcontentsline{toc}{chapter}{References}
+\renewcommand\bibname{References}
+
+\begin{thebibliography}{9}
+\bibitem {latexcompanion} \text{S. Yonghua, Y. Yuexi and H. Zechun, "Present Status and Development Trend of Batteries for Electric Vehicles", Power System Technology, vol. 35, no. 4, pp. 1-7, 2011}
+\bibitem {latexcompanion} \text{X. Kuang, K. Li, Y. Xie, C. Wu, P. Wang, X. Wang, et al., "Research on Control Strategy for a Battery Thermal Management System for Electric Vehicles Based on Secondary Loop Cooling", IEEE Access, vol. 8, pp. 73475-73493, 2020}
+\bibitem {latexcompanion} \text{M. A. Hannan, M. M. Hoque, A. Hussain, Y. Yusof and P. J. Ker, "State of-the-Art and Energy Management System of Lithium-Ion Batteries in Electric Vehicle Applications: Issues and Recommendations", IEEE Access, vol. 6, pp. 19362-19378, 2018.}
+\bibitem {latexcompanion} \text{R. Fang, K. Chen, L. Yin, Z. Sun, F. Li and H.M. Cheng, "The Regulating Role of Carbon Nanotubes and Graphene in Lithium-Ion and Lithium-Sulphur Batteries", Adv. Mater, 2018.}
+\bibitem {latexcompanion} \text{F. Zhu, G. Liu, C. Tao, K. Wang and K. Jiang, "Battery management system for Li-ion battery", The Journal of Engineering, vol. 2017, no. 13, pp. 1437-1440, 2017}
+\bibitem {latexcompanion} \text{A. Rahman, M. Rahman and M. Rashid, "Wireless battery management system of electric transport", IOP Conf. Ser. Mater. Sci. Eng, 2017.}
+\bibitem {latexcompanion} \text{N. Hossein Motlagh, M. Mohammadrezaei, J. Hunt and B. Zakeri, "Internet of Things (IoT) and the Energy Sector", Energies, vol. 13, no. 2, pp. 494, Jan. 2020.
+}
+\bibitem {latexcompanion} \text{K. Kumar and B. Jaipal, "The Role of Energy Storage with Renewable Electricity Generation", Electric Grid Modernization, 2022}
+\bibitem {latexcompanion} \text{S. K. Panda and A. Ghosh, "A Low Ripple Load Regulation Scheme for Grid Connected Microgrid Systems", IEEE 8 th Power India International Conference (PIICON) , 2018.}
+\bibitem {latexcompanion} \text{Meher and A. Ghosh, "Comparative Study of DC/DC Bidirectional SEPIC Converter with Different Controllers.}
+Issue, Pageno.}\\
+\end{thebibliography}
+\newpage
+
+\begin{center} \textbf{General Instructions} \end{center}
+\begin{itemize}
+\item Cover Page should be printed as per the color template and the next page also should be
+printed in color as per the template
+\item \textbf {Wherever Figures applicable in Report , that page should be printed in color}
+
+\item Dont include general content , write more technical content
+
+\item Each chapter should minimum contain 3 pages
+\item Draw the notation of diagrams properly
+
+\item Every paragraph should be started with one tab space
+\item Literature review should be properly cited and described with content related to project
+\item All the diagrams should be properly described and dont include general information of any
+diagram
+\item Example Use case diagram - describe according to your project flow
+\item All diagrams,figures should be numbered according to the chapter number and it should be
+cited properly
+\item\textbf {Testing and codequality should done in Sonarqube Tool}
+
+\item Test cases should be written with test input and test output
+\item All the references should be cited in the report
+\item \textbf {AI Generated text will not be considered}
+\item \textbf {Submission of Project Execution Files with Code in GitHub Repository}
+\item \textbf {Thickness of Cover and Rear Page of Project report should be 180 GSM}
+\item \textbf{Internship Offer letter and neccessary documents should be attached}
+
+\item \textbf{Strictly dont change font style or font size of the template, and dont customize the
+latex code of report}
+\item \textbf{Report should be prepared according to the template only}
+\item \textbf{Any deviations from the report template,will be summarily rejected}
+\item \textbf{Number of Project Soft Binded copy for each and every batch is (n+1) copies as given in
+the table below}
+
+\item For \textbf{Standards and Policies} refer the below link \\
+https://law.resource.org/pub/in/manifest.in.html
+
+\item Plagiarism should be less than 15\%
+\item \textbf {Journal/Conference Publication proofs should be attached in the last page of Project
+report after the references section}
+\end{itemize}
+
+\newpage
+\includepdf[page=-]{Instructions-Major-intern}
+
+\end{document}
